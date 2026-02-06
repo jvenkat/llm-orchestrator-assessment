@@ -42,14 +42,20 @@ Health Dashboard: GET /api/models/health
 
 Best Model Selector: GET /api/models/best
 
-1️⃣ State Manager (Node.js)
+State Manager (Node.js)
 
 cd orchestrator-express
 npm install
 npm start
+```
 
-2️⃣ Execution Agent (Python)
+### 2️⃣ Execution Agent (Python)
+
+```
+Execution Agent (Python)
+
 cd llm-interview-handler
+
 python -m venv .venv
 source .venv/bin/activate
 pip install fastapi uvicorn requests websockets
