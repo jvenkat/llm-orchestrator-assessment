@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # State Manager & Health Monitor
+  orchestrator:
+    build: ./orchestrator-express
+    container_name: express_orchestrator
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    networks:
+      - interview-network
+
+  # Interview Execution Engine
+  interview-engine:
+    build: ./interview-fastapi
+    container_name: fastapi_engine
+    ports:
+      - "8000:8000"
+    environment:
+      # Use the service name 'orchestrator' instead of 'localhost'
+      - STATE_MANAGER_URL=http://orchestrator:3000/api/models/best
+    depends_on:
+      - orchestrator
+    networks:
+      - interview-network
+
+networks:
+  interview-network:
+    driver: bridge

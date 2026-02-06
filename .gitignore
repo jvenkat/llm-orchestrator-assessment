@@ -1,0 +1,15 @@
+# --- Node.js / Express ---
+node_modules/
+npm-debug.log*
+.env
+
+# --- Python ---
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# --- Operating System ---
+.DS_Store
+Thumbs.db
